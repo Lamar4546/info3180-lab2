@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-
+from datetime import datetime
 
 ###
 # Routing for your application.
@@ -11,6 +11,9 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
+def format_date_joined(date):
+    """Convert a date format to a human readable format (e.g., January 1, 2020)."""
+    return date.strftime("%B %d, %Y")
 
 @app.route('/about/')
 def about():
@@ -28,6 +31,12 @@ def send_text_file(file_name):
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
 
+@app.route('/profile')
+def profile():
+    """Render the website's profile page."""
+    date_joined = datetime(2020, 1, 1)
+    formatted_date = format_date_joined(date_joined)
+    return render_template('profile.html', date_joined=formatted_date)
 
 @app.after_request
 def add_header(response):
@@ -45,3 +54,5 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
+

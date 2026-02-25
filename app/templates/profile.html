@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="profile-card">
+                <!-- Green Header with Profile Image -->
+                <div class="profile-header">
+                    <img src="{{ url_for('static', filename='images/ProfilePhoto.jpg') }}" alt="Profile Photo" class="profile-image">
+                    <h2 class="profile-name">Lamar Shaw</h2>
+                    <p class="profile-username">@lamarshaw</p>
+                    <p class="profile-location">Kingston, Jamaica</p>
+                    <p class="profile-joined">Joined {{ date_joined }}</p>
+                </div>
+                
+                <!-- White Body with Bio and Stats -->
+                <div class="profile-body">
+                    <p class="profile-bio">
+                        Software developer with a passion for creating innovative solutions. 
+                        Experienced in Python, JavaScript, and web development. 
+                        Always eager to learn and collaborate on exciting projects.
+                    </p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <h3>7</h3>
+                            <p>Posts</p>
+                        </div>
+                        <div class="stat">
+                            <h3>100</h3>
+                            <p>Following</p>
+                        </div>
+                        <div class="stat">
+                            <h3>250</h3>
+                            <p>Followers</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-follow">Follow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
